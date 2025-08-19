@@ -1,6 +1,6 @@
 # created by virtualenv automatically
 # Python
-__pycache__
+__pycache__/
 *.pyc
 *.pyo
 *.pyd
@@ -9,6 +9,7 @@ env/
 venv/
 python.exe
 python3.exe
+backend/uploads/
 .DS_Store
 
 # Flask uploads

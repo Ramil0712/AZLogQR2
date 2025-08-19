@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: form-project
+    runtime: python
+    env: production
+    region: frankfurt  # или oregon (США)
+    plan: free         # Бесплатный тариф
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: python backend/app.py
+    envVars:
+      - key: PORT
+        value: 10000
+    disk:
+      name: uploads-volume
+      mountPath: backend/uploads
