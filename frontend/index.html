@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sorğu</title>
+    <link rel="stylesheet" href=".\static\style.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Строки: Тема + Язык -->
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+            <span class="theme-toggle" id="themeToggle">🌙 Dark Theme</span>
+            <div class="lang-switcher" id="langSwitcher">
+                <img src="https://flagcdn.com/w20/az.png" alt="AZ" class="flag active" data-lang="az">
+                <img src="https://flagcdn.com/w20/gb.png" alt="EN" class="flag" data-lang="en">
+            </div>
+        </div>
+
+        <h1 id="title">Send Your Message</h1>
+        <form id="messageForm">
+            <div class="form-group">
+                <label for="firstName" id="labelFirstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="" />
+            </div>
+
+            <div class="form-group">
+                <label for="lastName" id="labelLastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="" />
+            </div>
+
+            <div class="form-group">
+                <label for="phone" id="labelPhone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="" />
+            </div>
+
+            <!-- Кнопка с выпадающим меню -->
+            <div class="form-group">
+                <div class="dropdown-container">
+                    <button type="button" class="add-file-btn" id="addFileBtn">➕ Add File</button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <div class="dropdown-item" data-action="capture-photo">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                                <circle cx="12" cy="13" r="3" />
+                            </svg>
+                            <span class="menu-text" data-key="takePhoto">Take Photo</span>
+                        </div>
+                        <div class="dropdown-item" data-action="select-photo">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span class="menu-text" data-key="selectPhoto">Select from Gallery</span>
+                        </div>
+                        <div class="dropdown-item" data-action="record-video">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <span class="menu-text" data-key="recordVideo">Record Video</span>
+                        </div>
+                        <div class="dropdown-item" data-action="select-video">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h4m10 0h4M3 16h4m10 0h4M9 4v16m6-16v16" />
+                            </svg>
+                            <span class="menu-text" data-key="selectVideo">Select Video</span>
+                        </div>
+                        <div class="dropdown-item" data-action="record-audio">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8a4 4 0 01-4-4V8a4 4 0 014-4h8a4 4 0 014 4v8a4 4 0 01-4 4z" />
+                            </svg>
+                            <span class="menu-text" data-key="recordAudio">Record Audio</span>
+                        </div>
+                        <div class="dropdown-item" data-action="select-audio">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                            </svg>
+                            <span class="menu-text" data-key="selectAudio">Select Audio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drag & Drop зона -->
+                <div class="drop-zone" id="dropZone">
+                    <span id="dropZoneText">Drop files here</span><br>
+                    <small id="dropZoneHint">(photos, videos, audio)</small>
+                </div>
+
+                <!-- Скрытые input'ы -->
+                <div class="file-inputs">
+                    <input type="file" id="photoCapture" accept="image/*" capture>
+                    <input type="file" id="photoSelect" accept="image/*">
+                    <input type="file" id="videoRecord" accept="video/*" capture="camcorder">
+                    <input type="file" id="videoSelect" accept="video/*">
+                    <input type="file" id="audioRecord" accept="audio/*" capture="microphone">
+                    <input type="file" id="audioSelect" accept="audio/*">
+                </div>
+            </div>
+
+            <!-- Превью файлов -->
+            <div class="form-group">
+                <div class="preview" id="filePreview"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="textMessage" id="labelTextMessage">Message</label>
+                <textarea id="textMessage" name="textMessage" rows="4" placeholder=""></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn">Send</button>
+            <div id="status">✅ Message sent!</div>
+            <div id="error" class="error"></div>
+        </form>
+    </div>
+
+    <script src=".\static\script.js"></script>
+</body>
+</html>
