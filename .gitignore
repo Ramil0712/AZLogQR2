@@ -23,5 +23,5 @@ uploads/
 .DS_Store
 
 # Local environment
-.env
+venv/
 config.py
